@@ -19,7 +19,7 @@ const NavigationComponent = () => {
 
         <div className="link-wrapper">
           <NavLink to="/service" activeClassName="link-active">
-            Service
+            Make a request
           </NavLink>
         </div>
 

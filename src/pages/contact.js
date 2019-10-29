@@ -24,7 +24,7 @@ export default function() {
               <FontAwesomeIcon icon="phone" />
             </div>
 
-            <div className="text">555-555-5555</div>
+            <div className="text">801-548-1190</div>
           </div>
 
           <div className="points-group">
