@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+import NavigationComponet from "./navigation/navigation-container";
 import Home from "./pages/home";
 import Contact from "./pages/contact";
 import Service from "./pages/service";
@@ -17,19 +18,20 @@ export default class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-          <h1>CCC Site</h1>
-          <Link to="/">Home</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/service">Service</Link>
-        </div>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/service" component={Service} />
-        </Switch>
-      </BrowserRouter>
+      <div className="app">
+        <h1>CCC Site</h1>
+        <BrowserRouter>
+          <div>
+            <NavigationComponet />
+
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/service" component={Service} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </div>
     );
   }
 }
