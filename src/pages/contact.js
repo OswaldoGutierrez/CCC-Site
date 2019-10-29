@@ -16,6 +16,10 @@ export default function() {
       <div className="right-column">
         <div className="contact-points">
           <div className="points-group">
+            <div className="text">Contact Us At</div>
+          </div>
+
+          <div className="points-group">
             <div className="icon">
               <FontAwesomeIcon icon="phone" />
             </div>
@@ -28,7 +32,7 @@ export default function() {
               <FontAwesomeIcon icon="envelope" />
             </div>
 
-            <div className="text">example@sample.com</div>
+            <div className="text">munozfamilym4@gmail.com</div>
           </div>
         </div>
       </div>
