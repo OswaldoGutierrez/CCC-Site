@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import Home from "./pages/home";
-import About from "./pages/about";
 import Contact from "./pages/contact";
+import Service from "./pages/service";
 import Icons from "./extra/icons";
 
 import "./styles/main.scss";
@@ -21,13 +21,13 @@ export default class App extends Component {
         <div className="App">
           <h1>CCC Site</h1>
           <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/service">Service</Link>
         </div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/service" component={Service} />
         </Switch>
       </BrowserRouter>
     );
