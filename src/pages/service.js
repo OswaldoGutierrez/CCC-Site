@@ -12,10 +12,9 @@ export default class Serivce extends Component {
       <div>
         <form>
           <div className="request-form">
-            <input type="text" placeholder="First Name" />
-            <input type="text" placeholder="Last Name" /> <br />
+            <input type="text" placeholder="First Name, Last Name" />
             <input type="text" placeholder="Company" />
-            <input type="email" placeholder="Email" /> <br />
+            <input type="email" placeholder="Email" />
             <input type="text" placeholder="Message" />
           </div>
           <button type="submit">Request</button>
