@@ -1,0 +1,26 @@
+.one {
+  display: flex;
+  justify-content: center;
+
+  .request-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 50vw;
+    height: 350px;
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      width: 150px;
+    }
+
+    .btn {
+      height: 20px;
+      width: 100px;
+    }
+  }
+}
