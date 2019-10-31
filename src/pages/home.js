@@ -5,8 +5,6 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <img src="" alt="Complete Commercial Cleaning" />
-
         <div className="services">
           <h2>Services We Provide</h2>
           <p>
