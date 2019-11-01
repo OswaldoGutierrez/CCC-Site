@@ -5,7 +5,7 @@ import NavigationComponet from "./navigation/navigation-container";
 import Home from "./pages/home";
 import Contact from "./pages/contact";
 import Request from "./pages/request";
-import Service from "./pages/service";
+import ServiceForm from "./pages/service-form";
 import Icons from "./extra/icons";
 
 import "./styles/main.scss";
@@ -27,7 +27,7 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/contact" component={Contact} />
-              <Route path="/service" component={Service} />
+              <Route path="/service-form" component={ServiceForm} />
               <Route path="/requests" component={Request} />
             </Switch>
           </div>

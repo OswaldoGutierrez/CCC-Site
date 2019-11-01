@@ -17,7 +17,7 @@ class Home extends React.Component {
 
         <div className="make-request">
           <p>Something Something</p>
-          <Link to="/service">Estimate</Link>
+          <Link to="/service-form">Estimate</Link>
         </div>
       </div>
     );

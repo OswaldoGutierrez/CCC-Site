@@ -23,7 +23,7 @@ const NavigationComponent = () => {
         </div>
 
         <div className="link-wrapper">
-          <NavLink to="/service" activeClassName="link-active">
+          <NavLink to="/service-form" activeClassName="link-active">
             Make a request
           </NavLink>
         </div>
