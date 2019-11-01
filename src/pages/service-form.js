@@ -28,10 +28,43 @@ export default class ServiceForm extends Component {
     this.getRequestItems();
   }
 
+  handleNewFormSubmission(requestItem) {
+    this.setState({
+      requestItems: [requestItem].concat(this.state.requestItems)
+    });
+  }
+
+  handleFormSubmissionError(error) {
+    console.log("handldeFormSubmissionError error", error);
+  }
+
+  getRequestItems() {
+    axios
+      .get("https://ccc-site-api.herokuapp.com/requests")
+      .then(response => {
+        this.setState({
+          requestItems: [...response.data.request_items]
+        });
+      })
+      .catch(error => {
+        console.log("error in getRequestItems", error);
+      });
+  }
+
+  componentDidMount() {
+    this.getRequestItems();
+  }
+
   render() {
     return (
       <div className="service-form-wrapper">
-        <Service />
+        <Service
+          handleNewFormSubmission={this.handleNewFormSubmission}
+          handleEditFormSubmission={this.handleEditFormSubmission}
+          handleFormSubmissionError={(this, this.handleFormSubmissionError)}
+          clearRequestToEdit={this.clearRequestToEdit}
+          requestToEdit={this.state.requestToEdit}
+        />
       </div>
     );
   }

@@ -22,14 +22,7 @@ export default class Serivce extends Component {
 
   componentDidUpdate() {
     if (Object.keys(this.props.requestToEdit).length > 0) {
-      const {
-        id,
-        name,
-        company,
-        email,
-        message,
-        done
-      } = this.props.requestToEdit;
+      const { id, name, company, email, message } = this.props.requestToEdit;
 
       this.props.clearRequestToEdit();
 
@@ -39,7 +32,6 @@ export default class Serivce extends Component {
         company: company || "",
         email: email || "",
         message: message || "",
-        done: done || false,
         editMode: true,
         apiUrl: `https://ccc-site-api.herokuapp.com/request/${id}`,
         apiAction: "patch"
