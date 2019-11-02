@@ -1,0 +1,26 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .services {
+    border: 2px solid blue;
+    border-radius: 5px;
+    background-color: lightblue;
+    height: 50vh;
+
+    h2 {
+      font-size: 2.5em;
+    }
+
+    p {
+      font-size: 1.5em;
+      line-height: 2;
+    }
+  }
+
+  .make-request {
+    display: flex;
+  }
+}

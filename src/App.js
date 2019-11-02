@@ -11,13 +11,24 @@ import Icons from "./extra/icons";
 import "./styles/main.scss";
 
 export default class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      records: []
+    };
 
     Icons();
   }
 
+  handleRecords = data => {
+    this.setState({
+      records: data
+    });
+  };
+
   render() {
+    console.log("from app", this.state.records);
     return (
       <div className="app">
         <BrowserRouter>
@@ -27,8 +38,18 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/contact" component={Contact} />
-              <Route path="/service-form" component={ServiceForm} />
-              <Route path="/requests" component={Request} />
+              <Route
+                path="/service-form"
+                render={props => (
+                  <ServiceForm {...props} handleRecords={this.handleRecords} />
+                )}
+              />
+              <Route
+                path="/requests"
+                render={props => (
+                  <Request {...props} records={this.state.records} />
+                )}
+              />
             </Switch>
           </div>
         </BrowserRouter>

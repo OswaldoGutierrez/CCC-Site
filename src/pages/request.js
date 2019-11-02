@@ -1,7 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Request = () => {
-  return <div className="">Requests</div>;
-};
+export default class Request extends Component {
+  constructor(props) {
+    super(props);
 
-export default Request;
+    this.state = {
+      records: []
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      records: this.props.records
+    });
+  }
+
+  render() {
+    console.log(this.props.records);
+    return <div className="request">Requests</div>;
+  }
+}

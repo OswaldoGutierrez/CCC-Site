@@ -4,8 +4,8 @@ import axios from "axios";
 import Service from "../form/service";
 
 export default class ServiceForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       requestItems: [],
@@ -40,11 +40,14 @@ export default class ServiceForm extends Component {
 
   getRequestItems() {
     axios
-      .get("https://ccc-site-api.herokuapp.com/requests")
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://ccc-site-api.herokuapp.com/requests"
+      )
       .then(response => {
         this.setState({
-          requestItems: [...response.data.request_items]
+          requestItems: response.data
         });
+        return this.props.handleRecords(response.data);
       })
       .catch(error => {
         console.log("error in getRequestItems", error);

@@ -12,12 +12,14 @@ export default class Serivce extends Component {
       message: "",
       done: false,
       editMode: false,
-      apiUrl: "https://ccc-site-api.herokuapp.com/requests",
+      apiUrl:
+        "https://cors-anywhere.herokuapp.com/https://ccc-site-api.herokuapp.com/request",
       apiAction: "post"
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.buildForm = this.buildForm.bind(this);
   }
 
   componentDidUpdate() {
@@ -33,14 +35,14 @@ export default class Serivce extends Component {
         email: email || "",
         message: message || "",
         editMode: true,
-        apiUrl: `https://ccc-site-api.herokuapp.com/request/${id}`,
+        apiUrl: `https://cors-anywhere.herokuapp.com/https://ccc-site-api.herokuapp.com/request/${id}`,
         apiAction: "patch"
       });
     }
   }
 
   buildForm() {
-    let formData = new formData();
+    const formData = new FormData();
 
     formData.append("request_item[name]", this.state.name);
     formData.append("request_item[company]", this.state.company);
@@ -57,6 +59,8 @@ export default class Serivce extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
+
     axios({
       method: this.state.apiAction,
       url: this.state.apiUrl,
@@ -75,15 +79,14 @@ export default class Serivce extends Component {
           email: "",
           message: "",
           editMode: false,
-          apiUrl: "https://ccc-site-api.herokuapp.com/requests",
+          apiUrl:
+            "https://cors-anywhere.herokuapp.com/https://ccc-site-api.herokuapp.com/request",
           apiAction: "post"
         });
       })
       .catch(error => {
         console.log("request form handleSubmit error", error);
       });
-
-    event.preventDefault();
   }
 
   render() {
