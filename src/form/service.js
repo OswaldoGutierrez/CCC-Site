@@ -59,8 +59,6 @@ export default class Serivce extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
-
     axios({
       method: this.state.apiAction,
       url: this.state.apiUrl,
@@ -87,12 +85,18 @@ export default class Serivce extends Component {
       .catch(error => {
         console.log("request form handleSubmit error", error);
       });
+
+    event.preventDefault();
   }
 
   render() {
     return (
       <div className="one">
         <form onSubmit={this.handleSubmit} className="request-form">
+          <div className="text">
+            <h3>Request Form</h3>
+          </div>
+
           <div className="inputs">
             <input
               type="text"

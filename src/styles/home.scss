@@ -5,10 +5,11 @@
   flex-direction: column;
 
   .services {
-    border: 2px solid blue;
+    border: 1px solid blue;
     border-radius: 5px;
     background-color: lightblue;
-    height: 50vh;
+    height: 70vh;
+    width: 98.6vw;
 
     h2 {
       font-size: 2.5em;
@@ -16,11 +17,15 @@
 
     p {
       font-size: 1.5em;
-      line-height: 2;
+      line-height: 2.5;
     }
   }
 
   .make-request {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fc634c;
+    margin-top: 15px;
   }
 }
