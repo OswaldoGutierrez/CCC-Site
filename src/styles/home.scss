@@ -5,19 +5,40 @@
   flex-direction: column;
 
   .services {
-    border: 1px solid blue;
-    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     background-color: lightblue;
-    height: 70vh;
-    width: 98.6vw;
+    height: 80vh;
+    width: 98.7vw;
 
     h2 {
       font-size: 2.5em;
+      width: 26vw;
     }
 
     p {
       font-size: 1.5em;
       line-height: 2.5;
+    }
+
+    .images {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-direction: column;
+      margin-left: 75vw;
+      width: 12vw;
+      position: relative;
+      bottom: 420px;
+
+      .image-one {
+        width: 12.5vw;
+
+        img {
+          height: 24vh;
+        }
+      }
     }
   }
 
@@ -26,6 +47,7 @@
     justify-content: center;
     align-items: center;
     background-color: #fc634c;
-    margin-top: 15px;
+    position: relative;
+    bottom: 80px;
   }
 }

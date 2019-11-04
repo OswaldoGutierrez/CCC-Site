@@ -18,12 +18,14 @@ class Home extends React.Component {
             Spot-Cleaning <br />
           </p>
 
-          <div className="image-one">
-            <img src={ImageOne} alt="image-one" />
-          </div>
+          <div className="images">
+            <div className="image-one">
+              <img src={ImageOne} alt="first" />
+            </div>
 
-          <div className="image-two">
-            <img src={ImageTwo} alt="image-two" />
+            <div className="image-two">
+              <img src={ImageTwo} alt="second" />
+            </div>
           </div>
         </div>
 

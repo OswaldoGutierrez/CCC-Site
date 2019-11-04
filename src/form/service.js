@@ -59,6 +59,7 @@ export default class Serivce extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     axios({
       method: this.state.apiAction,
       url: this.state.apiUrl,
@@ -85,8 +86,6 @@ export default class Serivce extends Component {
       .catch(error => {
         console.log("request form handleSubmit error", error);
       });
-
-    event.preventDefault();
   }
 
   render() {
