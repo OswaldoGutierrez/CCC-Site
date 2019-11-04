@@ -19,7 +19,6 @@ export default class Serivce extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.buildForm = this.buildForm.bind(this);
   }
 
   componentDidUpdate() {
@@ -41,17 +40,6 @@ export default class Serivce extends Component {
     }
   }
 
-  buildForm() {
-    const formData = new FormData();
-
-    formData.append("request_item[name]", this.state.name);
-    formData.append("request_item[company]", this.state.company);
-    formData.append("request_item[email]", this.state.email);
-    formData.append("request_item[message]", this.state.message);
-
-    return formData;
-  }
-
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
@@ -63,7 +51,13 @@ export default class Serivce extends Component {
     axios({
       method: this.state.apiAction,
       url: this.state.apiUrl,
-      data: this.buildForm()
+      data: {
+        name: this.state.name,
+        company: this.state.company,
+        email: this.state.email,
+        message: this.state.message,
+        done: this.state.done
+      }
     })
       .then(response => {
         if (this.state.editMode) {

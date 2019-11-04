@@ -16,7 +16,7 @@ export default class Request extends Component {
   }
 
   render() {
-    console.log(this.props.records);
+    console.log("request", this.props.records);
     return <div className="request">Requests</div>;
   }
 }
