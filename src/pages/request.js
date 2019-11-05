@@ -10,9 +10,30 @@ export default class Request extends Component {
       records: [],
       requestItems: []
     };
+
+    this.handleDelete = this.handleDelete.bind(this);
     this.getRequestItems = this.getRequestItems.bind(this);
     this.renderRequest = this.renderRequest.bind(this);
-    // this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(id) {
+    console.log("delete", id);
+    axios
+      .delete(
+        `https://cors-anywhere.herokuapp.com/https://ccc-site-api.herokuapp.com/request/${id}`
+      )
+      .then(response => {
+        this.setState({
+          requestItems: this.state.requestItems.filter(item => {
+            return item.id !== id;
+          })
+        });
+
+        return response.data;
+      })
+      .catch(error => {
+        console.log("handleDelete error", error);
+      });
   }
 
   componentDidMount() {
@@ -47,7 +68,7 @@ export default class Request extends Component {
           <div className="email">{item.email}</div>
           <div className="message">{item.message}</div>
           <div className="del">
-            <a>
+            <a className="del-icon" onClick={() => this.handleDelete(item.id)}>
               <FontAwesomeIcon icon="trash" />
             </a>
           </div>
