@@ -30,7 +30,7 @@ class Home extends React.Component {
         </div>
 
         <div className="make-request">
-          <p>Click Here To Receive A Free</p>
+          <p>Contact Us And Receive A Free</p>
           <Link to="/service-form">Estimate</Link>
         </div>
       </div>
