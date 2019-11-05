@@ -33,7 +33,9 @@
       bottom: 420px;
 
       .image-one {
-        width: 12.5vw;
+        width: 12vw;
+        position: relative;
+        right: 170px;
 
         img {
           height: 24vh;
@@ -44,11 +46,12 @@
 
   .make-request {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: #fc634c;
     position: relative;
     bottom: 80px;
-    padding: 10px;
+    padding: 15px;
+    width: 19vw;
   }
 }
