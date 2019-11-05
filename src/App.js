@@ -7,6 +7,7 @@ import Contact from "./pages/contact";
 import Request from "./pages/request";
 import ServiceForm from "./pages/service-form";
 import Icons from "./extra/icons";
+import Auth from "./pages/auth";
 
 import "./styles/main.scss";
 
@@ -37,6 +38,7 @@ export default class App extends Component {
 
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route path="/auth" component={Auth} />
               <Route path="/contact" component={Contact} />
               <Route
                 path="/service-form"
