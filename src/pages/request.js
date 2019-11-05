@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Cookie from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class Request extends Component {
@@ -82,11 +83,15 @@ export default class Request extends Component {
     return (
       <div className="request">
         <h2>Requests</h2>
-        <div>
-          {this.state.requestItems.length > 0
-            ? this.renderRequest()
-            : "Loading..."}
-        </div>
+        {Cookie.get("LOGGEDIN") === "True" ? (
+          <div>
+            {this.state.requestItems.length > 0
+              ? this.renderRequest()
+              : "Loading..."}
+          </div>
+        ) : (
+          "You Must Log In To View This"
+        )}
       </div>
     );
   }

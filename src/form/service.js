@@ -10,7 +10,6 @@ export default class Serivce extends Component {
       company: "",
       email: "",
       message: "",
-      done: false,
       editMode: false,
       apiUrl:
         "https://cors-anywhere.herokuapp.com/https://ccc-site-api.herokuapp.com/request",
@@ -55,8 +54,7 @@ export default class Serivce extends Component {
         name: this.state.name,
         company: this.state.company,
         email: this.state.email,
-        message: this.state.message,
-        done: this.state.done
+        message: this.state.message
       }
     })
       .then(response => {

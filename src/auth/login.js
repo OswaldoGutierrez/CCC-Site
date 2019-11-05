@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios";
+import Cookie from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class Login extends Component {
@@ -6,12 +8,14 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-      email: "",
+      username: "",
       password: "",
-      errorText: ""
+      errorText: "",
+      loggedIn: false
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -21,6 +25,31 @@ export default class Login extends Component {
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log(this.state.username, this.state.password);
+    axios
+      .get("https://ccc-site-api.herokuapp.com/users")
+      .then(response => {
+        console.log(response.data);
+        if (
+          response.data[1].username === this.state.username &&
+          response.data[1].password === this.state.password
+        ) {
+          this.setState({
+            loggedIn: true
+          });
+          Cookie.set("LOGGEDIN", "True", { expires: 1 });
+          window.location.reload();
+        } else {
+          alert("Invalid");
+        }
+      })
+      .catch(error => {
+        console.log("handleSubmit error", error);
+      });
+  }
+
   render() {
     return (
       <div>
@@ -28,14 +57,17 @@ export default class Login extends Component {
 
         <div>{this.state.errorText}</div>
 
-        <form className="auth-form-wrapper">
+        <form
+          onSubmit={event => this.handleSubmit(event)}
+          className="auth-form-wrapper"
+        >
           <div className="form-group">
             <FontAwesomeIcon icon="envelope" />
             <input
               type="email"
-              name="email"
+              name="username"
               placeholder="Your email"
-              value={this.state.email}
+              value={this.state.username}
               onChange={this.handleChange}
             />
           </div>
