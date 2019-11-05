@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class Request extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class Request extends Component {
     };
     this.getRequestItems = this.getRequestItems.bind(this);
     this.renderRequest = this.renderRequest.bind(this);
+    // this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -40,10 +42,15 @@ export default class Request extends Component {
     return this.state.requestItems.map(item => {
       return (
         <div className="items">
-          <div>{item.name}</div>
-          <div>{item.company}</div>
-          <div>{item.email}</div>
-          <div>{item.message}</div>
+          <div className="name">{item.name}</div>
+          <div className="company">{item.company}</div>
+          <div className="email">{item.email}</div>
+          <div className="message">{item.message}</div>
+          <div className="del">
+            <a>
+              <FontAwesomeIcon icon="trash" />
+            </a>
+          </div>
         </div>
       );
     });

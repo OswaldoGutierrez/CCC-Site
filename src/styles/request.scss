@@ -1,0 +1,27 @@
+.items {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 5px;
+  line-height: 2;
+  width: 50vw;
+
+  .name {
+    font-size: 2em;
+  }
+
+  .company {
+    font-size: 1.5em;
+  }
+
+  .email {
+    font-size: 1.5em;
+  }
+
+  .message {
+    font-size: 1.5em;
+  }
+}

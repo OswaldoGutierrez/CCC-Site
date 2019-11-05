@@ -1,4 +1,6 @@
 import {
+  faTrash,
+  faSignOutAlt,
   faPhone,
   faEnvelope,
   faMapMarkedAlt,
@@ -7,7 +9,14 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 const Icons = () => {
-  return library.add(faPhone, faEnvelope, faMapMarkedAlt, faLock);
+  return library.add(
+    faTrash,
+    faSignOutAlt,
+    faPhone,
+    faEnvelope,
+    faMapMarkedAlt,
+    faLock
+  );
 };
 
 export default Icons;
