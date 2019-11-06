@@ -95,17 +95,14 @@ export default class Serivce extends Component {
               name: "Oswaldo Gutierrez"
             }
           ],
-          from_email: "CCC@netlify.com",
+          from_email: "completecommercail@cleaning.com",
           subject: "Request",
           text: "You have Received a Request."
         }
       },
       function(error, response) {
-        if (error) {
-          console.log(JSON.stringify(error));
-        } else {
-          console.log(response);
-        }
+        if (error) console.log(JSON.stringify(error));
+        else console.log(response);
       }
     );
   }
