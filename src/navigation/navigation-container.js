@@ -30,6 +30,12 @@ export default class NavigationComponent extends Component {
           </div>
 
           <div className="link-wrapper">
+            <NavLink to="/reviews" activeClassName="link-active">
+              Reviews
+            </NavLink>
+          </div>
+
+          <div className="link-wrapper">
             <NavLink to="/service-form" activeClassName="link-active">
               Make a request
             </NavLink>
