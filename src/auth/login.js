@@ -31,8 +31,8 @@ export default class Login extends Component {
       .then(response => {
         console.log(response.data);
         if (
-          response.data.username === this.state.username &&
-          response.data.password === this.state.password
+          response.data[0].username === this.state.username &&
+          response.data[0].password === this.state.password
         ) {
           this.setState({
             loggedIn: true
