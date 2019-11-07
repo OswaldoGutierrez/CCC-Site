@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import node_mandrill from "node-mandrill";
 
 export default class Serivce extends Component {
   constructor(props) {
@@ -19,7 +18,6 @@ export default class Serivce extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleEmail = this.handleEmail.bind(this);
   }
 
   componentDidUpdate() {
@@ -82,31 +80,6 @@ export default class Serivce extends Component {
       });
   }
 
-  handleEmail() {
-    let mandrill = require("node-mandrill")("SHKvFHLhRIu7ovOrs7GdAg");
-
-    mandrill(
-      "/messages/send",
-      {
-        message: {
-          to: [
-            {
-              email: "oswaldogutierrez143@gmail.com",
-              name: "Oswaldo Gutierrez"
-            }
-          ],
-          from_email: "completecommercail@cleaning.com",
-          subject: "Request",
-          text: "You have Received a Request."
-        }
-      },
-      function(error, response) {
-        if (error) console.log(JSON.stringify(error));
-        else console.log(response);
-      }
-    );
-  }
-
   render() {
     return (
       <div className="one">
@@ -148,7 +121,7 @@ export default class Serivce extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <button onClick={this.handleEmail} type="submit" className="btn">
+          <button type="submit" className="btn">
             Request
           </button>
         </form>

@@ -10,7 +10,6 @@ export default class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      errorText: "",
       loggedIn: false
     };
 
@@ -20,8 +19,7 @@ export default class Login extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value,
-      errorText: ""
+      [event.target.name]: event.target.value
     });
   }
 
@@ -33,8 +31,8 @@ export default class Login extends Component {
       .then(response => {
         console.log(response.data);
         if (
-          response.data[1].username === this.state.username &&
-          response.data[1].password === this.state.password
+          response.data.username === this.state.username &&
+          response.data.password === this.state.password
         ) {
           this.setState({
             loggedIn: true
@@ -54,8 +52,6 @@ export default class Login extends Component {
     return (
       <div>
         <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
-
-        <div>{this.state.errorText}</div>
 
         <form
           onSubmit={event => this.handleSubmit(event)}
