@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavigationComponet from "./navigation/navigation-container";
 import Home from "./pages/home";
 import Contact from "./pages/contact";
-import Review from "./pages/reviews";
+import ReviewForm from "./pages/reviews-form";
 import Request from "./pages/request";
 import ServiceForm from "./pages/service-form";
 import Icons from "./extra/icons";
@@ -17,11 +17,18 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      records: []
+      records: [],
+      reviewRecords: []
     };
 
     Icons();
   }
+
+  handleReviews = data => {
+    this.setState({
+      reviewRecords: data
+    });
+  };
 
   handleRecords = data => {
     this.setState({
@@ -31,6 +38,7 @@ export default class App extends Component {
 
   render() {
     console.log("from app", this.state.records);
+    console.log("from app", this.state.reviewRecords);
     return (
       <div className="app">
         <BrowserRouter>
@@ -41,7 +49,12 @@ export default class App extends Component {
               <Route exact path="/" component={Home} />
               <Route path="/auth" component={Auth} />
               <Route path="/contact" component={Contact} />
-              <Route path="/reviews" component={Review} />
+              <Route
+                path="/reviews-form"
+                render={props => (
+                  <ReviewForm {...props} handleReviews={this.handleReviews} />
+                )}
+              />
               <Route
                 path="/service-form"
                 render={props => (
@@ -51,7 +64,11 @@ export default class App extends Component {
               <Route
                 path="/requests"
                 render={props => (
-                  <Request {...props} records={this.state.records} />
+                  <Request
+                    {...props}
+                    records={this.state.records}
+                    reviewRecords={this.state.reviewRecords}
+                  />
                 )}
               />
             </Switch>

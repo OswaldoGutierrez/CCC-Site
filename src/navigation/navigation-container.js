@@ -30,7 +30,7 @@ export default class NavigationComponent extends Component {
           </div>
 
           <div className="link-wrapper">
-            <NavLink to="/reviews" activeClassName="link-active">
+            <NavLink to="/reviews-form" activeClassName="link-active">
               Reviews
             </NavLink>
           </div>
@@ -44,7 +44,7 @@ export default class NavigationComponent extends Component {
           <div className="link-wrapper">
             {Cookie.get("LOGGEDIN") === "True" ? (
               <NavLink to="/requests" activeClassName="link-active">
-                Requests
+                Requests/Reviews
               </NavLink>
             ) : null}
           </div>

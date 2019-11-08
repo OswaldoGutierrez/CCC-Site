@@ -9,12 +9,16 @@ export default class Request extends Component {
 
     this.state = {
       records: [],
-      requestItems: []
+      requestItems: [],
+      reviewRecords: [],
+      reviewItems: []
     };
 
     this.handleDelete = this.handleDelete.bind(this);
     this.getRequestItems = this.getRequestItems.bind(this);
+    this.getReviewItems = this.getReviewItems.bind(this);
     this.renderRequest = this.renderRequest.bind(this);
+    this.renderReview = this.renderReview.bind(this);
   }
 
   handleDelete(id) {
@@ -39,9 +43,11 @@ export default class Request extends Component {
 
   componentDidMount() {
     this.setState({
-      records: this.props.records
+      records: this.props.records,
+      reviewItems: this.props.reviewItems
     });
     this.getRequestItems();
+    this.getReviewItems();
   }
 
   getRequestItems() {
@@ -56,6 +62,21 @@ export default class Request extends Component {
       })
       .catch(error => {
         console.log("error in getRequestItems", error);
+      });
+  }
+
+  getReviewItems() {
+    axios
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://ccc-site-api.herokuapp.com/reviews"
+      )
+      .then(res => {
+        this.setState({
+          reviewItems: res.data
+        });
+      })
+      .catch(err => {
+        console.log("err in getReviewItems", err);
       });
   }
 
@@ -78,8 +99,27 @@ export default class Request extends Component {
     });
   }
 
+  renderReview() {
+    console.log(this.state.reviewItems);
+    return this.state.reviewItems.map(revItem => {
+      return (
+        <div className="review-items">
+          <div className="name">{revItem.name}</div>
+          <div className="rating">{revItem.rating}</div>
+          <div className="comment">{revItem.comment}</div>
+          <div className="del">
+            <a className="del-icon">
+              <FontAwesomeIcon icon="trash" />
+            </a>
+          </div>
+        </div>
+      );
+    });
+  }
+
   render() {
     console.log("request", this.state.requestItems);
+    console.log("Review", this.state.reviewItems);
     return (
       <div className="request">
         <h2>Requests</h2>
