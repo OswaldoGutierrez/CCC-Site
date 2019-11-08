@@ -44,8 +44,6 @@ export default class Review extends Component {
   }
 
   handleSubmit(event) {
-    console.log("Click");
-    event.preventDefault();
     axios({
       method: this.state.apiAction,
       url: this.state.apiUrl,
@@ -71,10 +69,12 @@ export default class Review extends Component {
             "https://cors-anywhere.herokuapp.com/https://ccc-site-api.herokuapp.com/review",
           apiAction: "post"
         });
+        this.getReviewItems();
       })
       .catch(error => {
         console.log("Review form handleSubmit error", error);
       });
+    event.preventDefault();
   }
 
   getReviewItems() {
